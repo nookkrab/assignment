@@ -1,0 +1,14 @@
+Question 3
+
+Please choose and explain the three element locators are as follow and which one is the best practice in Cypress.
+1) cy.get('[data-cy=submit]')
+2) cy.get('#main').click()
+3) cy.get('[name=submission]').click()
+4) cy.get('.error-message-container’)
+5) cy.get('input[placeorder="username"]')
+
+Answer: 
+1) cy.get('[data-cy=submit]')
+2) cy.get('#main').click()
+5) cy.get('input[placeorder="username"]')
+And the best one is “ 1) cy.get('[data-cy=submit]') ” because it is a custom attribute that is unique, easy to maintain, and easy to understand.

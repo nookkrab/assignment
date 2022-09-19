@@ -1,0 +1,32 @@
+Question 2
+
+What are the different types of variables in Robot framework, please provide example?
+
+Answer: There are three types of variables in Robot Framework.
+The first one is “Scalar variables”, it is a variable that can be stored only one by one data.
+Example: 
+*** Variables ***
+${variable1}    one
+${variable2}    two
+
+
+The second one is “List variables”, it is a variable that can be stored many data. And it has to use “index” for accessing the data you want.
+Example: if that page contains text only “Bow”
+*** Variables ***
+@{variable}    Jane  Noon  Bow
+
+*** Test Cases ***
+Verify Bow on this page
+	Page Should Contain	@{variable}[2]
+
+
+The last one is “Dictionary variables”, it is a variable that can be stored many data like a List variables but it has to use “key” for accessing the data you want.
+Example: 	
+*** Variables ***
+&{variable1}	name=Test1	age=25		Sex=Male
+&{variable2}	name=Test2	age=30		Sex=Female
+
+*** Test Cases ***
+What are the name of variable1 and Sex of variable2
+	Log	&{variable1}[name]
+	Log	&{variable2}[Sex]

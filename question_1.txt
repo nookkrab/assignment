@@ -1,0 +1,5 @@
+Question 1
+
+Which library would be required for web services and mobile automation in Robot Framework?
+
+Answer: Selenium library for web services and Appium library for mobile.

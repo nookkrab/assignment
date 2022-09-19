@@ -1,0 +1,43 @@
+Question 4
+
+Please create automated test script for the login page using Robot framework or Cypress or any preference framework.
+
+Answer: There are two files for the script as below.
+
+keywords.robot
+*** Settings ***
+Library           SeleniumLibrary
+
+*** Keywords ***
+User has opened Chrome browser
+   Open Browser                         ${website_url}     chrome
+   Maximize Browser Window
+   Wait Until Element Is Visible        css=[data-testid="user-id"]
+   Wait Until Element Is Visible        css=[data-testid="password"]
+   Wait Until Element Is Visible        css=[data-testid="login"]
+
+User has entered their username as "${enter_username}"
+   Input Text                           css=[data-testid="user-id"]                 ${enter_username}
+
+User has entered their password as "${enter_password}"
+   Input Text                           css=[data-testid="password"]             ${enter_password}
+
+User has clicked login button
+   Click Element                     css=[data-testid="login"]
+
+----------------------------------------------------------------------------------------
+
+test_running.robot
+
+*** Settings ***
+Library           SeleniumLibrary
+Resource          keywords.robot
+Test Teardown     Close Browser
+
+
+*** Test Cases ***
+Login workflow
+   User has opened Chrome browser
+   User has entered their username as "xxxxx@email.com"
+   User has entered their password as "xxxxxxxxxxxxxxx"
+   User has clicked login button
